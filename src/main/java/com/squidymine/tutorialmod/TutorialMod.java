@@ -1,5 +1,7 @@
 package com.squidymine.tutorialmod;
 
+import com.squidymine.tutorialmod.block.ModBlocks;
+import com.squidymine.tutorialmod.item.ModItemGroups;
 import com.squidymine.tutorialmod.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -13,5 +15,7 @@ public class TutorialMod implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.registerModItems();
+		ModBlocks.registerModBlocks();
+		ModItemGroups.registerItemGroups();
 	}
 }
