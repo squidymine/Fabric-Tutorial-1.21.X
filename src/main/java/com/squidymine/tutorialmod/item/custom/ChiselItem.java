@@ -1,9 +1,11 @@
 package com.squidymine.tutorialmod.item.custom;
 
 import com.squidymine.tutorialmod.block.ModBlocks;
+import com.squidymine.tutorialmod.component.ModDataComponentTypes;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.component.DataComponentTypes;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -48,6 +50,9 @@ public class ChiselItem extends Item {
 
                 world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS);
 
+                context.getStack().set(ModDataComponentTypes.COORDINATES, context.getBlockPos()); // Can pass in null to delete the data
+                //context.getStack().set(DataComponentTypes. , );
+
             }
         }
 
@@ -60,6 +65,10 @@ public class ChiselItem extends Item {
             tooltip.add(Text.translatable("tooltip.tutorialmod.chisel.shift_down"));
         } else {
             tooltip.add(Text.translatable("tooltip.tutorialmod.chisel"));
+        }
+
+        if (stack.get(ModDataComponentTypes.COORDINATES) != null) {
+            tooltip.add(Text.literal("Last Block Changed at " + stack.get(ModDataComponentTypes.COORDINATES)));
         }
 
         super.appendTooltip(stack, context, tooltip, type);
