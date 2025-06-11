@@ -2,6 +2,7 @@ package com.squidymine.tutorialmod.block;
 
 import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.block.custom.MagicBlock;
+import com.squidymine.tutorialmod.block.custom.PinkGarnetLampBlock;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.client.gl.Uniform;
@@ -59,6 +60,11 @@ public class ModBlocks {
             new DoorBlock(BlockSetType.IRON, AbstractBlock.Settings.create().strength(2f).requiresTool().nonOpaque()));
     public static final Block PINK_GARNET_TRAPDOOR = registerBlock("pink_garnet_trapdoor",
             new TrapdoorBlock(BlockSetType.IRON, AbstractBlock.Settings.create().strength(2f).requiresTool().nonOpaque()));
+
+
+    public static final Block PINK_GARNET_LAMP = registerBlock("pink_garnet_lamp",
+            new PinkGarnetLampBlock(AbstractBlock.Settings.create()
+                    .strength(1f).requiresTool().luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15: 0)));
 
 
 
