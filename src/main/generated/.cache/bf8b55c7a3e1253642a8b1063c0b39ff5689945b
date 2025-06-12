@@ -1,4 +1,4 @@
-// 1.21	2025-06-11T20:07:40.548507	Tutorial Mod/Model Definitions
+// 1.21	2025-06-11T20:39:08.5800587	Tutorial Mod/Model Definitions
 78060f761e21d98042a47bf0698ec8ee5d9abad2 assets\tutorialmod\models\block\pink_garnet_wall_side.json
 69a45d9eda7fcbbb46f3a4bf568243a7b2141123 assets\tutorialmod\models\item\chisel.json
 6a728eda7238fed6b027e801e464250c3f3144ba assets\tutorialmod\blockstates\pink_garnet_block.json
@@ -22,6 +22,7 @@ dcb8c72e5f3b703f9f0ef355f6d347e50c94b4db assets\tutorialmod\models\block\pink_ga
 5766845b2b537199e0d43d0fa33b3fb4ff9dc38d assets\tutorialmod\models\block\pink_garnet_ore.json
 c5c2c9e3791629868052f3ae6a783c1fbeb77e49 assets\tutorialmod\models\block\pink_garnet_lamp.json
 75e5b55e50c1534b829f5a052542c160ae5ed12d assets\tutorialmod\models\item\pink_garnet_slab.json
+00d484aeafa1b6b8a7a6dcc575cfd572b517bd23 assets\tutorialmod\models\item\pink_garnet_hammer.json
 e10ed0f44080df33ec18cbea1e4ca95ffa54b62f assets\tutorialmod\models\item\pink_garnet_button.json
 2d6beef04b0d62bbe5ea8ec6bcf8cb0ff7ee6b61 assets\tutorialmod\models\block\pink_garnet_fence_gate.json
 4d10d1813b93d6846d3318293a7212aa16757f2a assets\tutorialmod\models\item\pink_garnet_block.json

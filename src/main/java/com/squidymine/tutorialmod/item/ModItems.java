@@ -2,6 +2,7 @@ package com.squidymine.tutorialmod.item;
 
 import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.item.custom.ChiselItem;
+import com.squidymine.tutorialmod.item.custom.HammerItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
@@ -42,6 +43,10 @@ public class ModItems {
     public static final Item PINK_GARNET_HOE = registerItem("pink_garnet_hoe",
             new HoeItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
                     .attributeModifiers(HoeItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 0, -3f))));
+
+    public static final Item PINK_GARNET_HAMMER = registerItem("pink_garnet_hammer",
+            new HammerItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
+                    .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 7, -3.4f))));
 
 
 
