@@ -3,6 +3,7 @@ package com.squidymine.tutorialmod.item;
 import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.item.custom.ChiselItem;
 import com.squidymine.tutorialmod.item.custom.HammerItem;
+import com.squidymine.tutorialmod.item.custom.ModArmorItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
 import net.minecraft.item.tooltip.TooltipType;
@@ -50,7 +51,7 @@ public class ModItems {
     // ArmorItem.Type.HELMET.getMaxDamage(15)  is default helmet durability with a 15 times multi
 
     public static final Item PINK_GARNET_HELMET = registerItem("pink_garnet_helmet",
-            new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()
+            new ModArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()
                     .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
     public static final Item PINK_GARNET_CHESTPLATE = registerItem("pink_garnet_chestplate",
             new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
