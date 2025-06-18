@@ -3,6 +3,7 @@ package com.squidymine.tutorialmod.block;
 import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.block.custom.MagicBlock;
 import com.squidymine.tutorialmod.block.custom.PinkGarnetLampBlock;
+import com.squidymine.tutorialmod.sound.ModSounds;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.*;
 import net.minecraft.client.gl.Uniform;
@@ -34,7 +35,7 @@ public class ModBlocks {
 
 
     public static final Block MAGIC_BLOCK = registerBlock("magic_block",
-            new MagicBlock(AbstractBlock.Settings.create().strength(1f).requiresTool()));
+            new MagicBlock(AbstractBlock.Settings.create().strength(1f).requiresTool().sounds(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
 
     public static final Block PINK_GARNET_STAIRS = registerBlock("pink_garnet_stairs",

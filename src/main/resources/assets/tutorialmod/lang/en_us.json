@@ -55,5 +55,15 @@
   "tooltip.tutorialmod.chisel.shift_down": "This item chisels Blocks into Bricks!",
   "tooltip.tutorialmod.chisel": "Press §eShift§r for more Information",
 
-  "tooltip.tutorialmod.cauliflower.tooltip": "This is delicious!"
+  "tooltip.tutorialmod.cauliflower.tooltip": "This is delicious!",
+
+
+
+  "sounds.tutorialmod.chisel_use": "Chisel Used",
+
+  "sounds.tutorialmod.magic_block_break":  "Magic Block broken",
+  "sounds.tutorialmod.magic_block_step":  "Magic Block step",
+  "sounds.tutorialmod.magic_block_place":  "Magic Block placed",
+  "sounds.tutorialmod.magic_block_hit":  "Magic Block hit",
+  "sounds.tutorialmod.magic_block_fall": "Magic Block fall"
 }
