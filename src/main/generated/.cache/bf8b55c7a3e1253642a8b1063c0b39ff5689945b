@@ -1,5 +1,4 @@
-// 1.21	2025-06-16T20:07:17.6837709	Tutorial Mod/Model Definitions
-69a45d9eda7fcbbb46f3a4bf568243a7b2141123 assets\tutorialmod\models\item\chisel.json
+// 1.21	2025-06-20T00:02:32.453539	Tutorial Mod/Model Definitions
 641d841a6c900eadf0d906cd34ebf827d123ad4c assets\tutorialmod\models\item\pink_garnet_chestplate_gold_trim.json
 bca9ff36f9818e960478cbf836814f3bd7ca2d53 assets\tutorialmod\models\item\pink_garnet_boots_quartz_trim.json
 9a4c859051c4311a4886dbf72e2dd1991982a24a assets\tutorialmod\models\item\pink_garnet_leggings_emerald_trim.json
@@ -17,8 +16,8 @@ bea28263b608c89741eb5316cafad7a6cf51f4aa assets\tutorialmod\models\item\pink_gar
 e10ed0f44080df33ec18cbea1e4ca95ffa54b62f assets\tutorialmod\models\item\pink_garnet_button.json
 4d10d1813b93d6846d3318293a7212aa16757f2a assets\tutorialmod\models\item\pink_garnet_block.json
 cc8f00f1b98aecce865aca0e48ecdcebecd7670e assets\tutorialmod\models\item\pink_garnet_leggings_quartz_trim.json
-5426855a63fe5d217174d00fe0f885d9add835ec assets\tutorialmod\models\item\pink_garnet_helmet_diamond_trim.json
 01e09c727272c77367655cf96923b5d3a9a8c901 assets\tutorialmod\models\item\pink_garnet_helmet.json
+5426855a63fe5d217174d00fe0f885d9add835ec assets\tutorialmod\models\item\pink_garnet_helmet_diamond_trim.json
 f9ed04be9d2f4997aacfb20ab46ea7ab66f571b9 assets\tutorialmod\models\block\pink_garnet_stairs.json
 c7e2ca3b8d04b243bdb94ed79fc421f28ba5bf6f assets\tutorialmod\models\item\pink_garnet_sword.json
 dd6ed22139adb247a310f71365dc507d08e555e3 assets\tutorialmod\models\item\pink_garnet_boots_iron_trim.json
