@@ -8,6 +8,7 @@ import com.squidymine.tutorialmod.item.ModItemGroups;
 import com.squidymine.tutorialmod.item.ModItems;
 import com.squidymine.tutorialmod.sound.ModSounds;
 import com.squidymine.tutorialmod.util.HammerUsageEvent;
+import com.squidymine.tutorialmod.world.gen.ModWorldGeneration;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
@@ -40,6 +41,8 @@ public class TutorialMod implements ModInitializer {
 		ModEffects.registerEffects();
 
 		ModEnchantmentEffects.registerEnchantmentEffects();
+
+		ModWorldGeneration.generateModWorldGen();
 
 		// Can create a custom class of all fuels that has a static register method that can be called here
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
