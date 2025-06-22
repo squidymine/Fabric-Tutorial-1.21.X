@@ -1,6 +1,7 @@
 package com.squidymine.tutorialmod.datagen;
 
 import com.squidymine.tutorialmod.block.ModBlocks;
+import com.squidymine.tutorialmod.block.custom.HoneyBerryBushBlock;
 import com.squidymine.tutorialmod.block.custom.PinkGarnetLampBlock;
 import com.squidymine.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -39,6 +40,9 @@ public class ModModelProvider extends FabricModelProvider {
         Identifier lampOnIdentifier = blockStateModelGenerator.createSubModel(ModBlocks.PINK_GARNET_LAMP, "_on", Models.CUBE_ALL, TextureMap::all);
         blockStateModelGenerator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.PINK_GARNET_LAMP)
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(PinkGarnetLampBlock.CLICKED, lampOnIdentifier, lampOffIdentifier)));
+
+        blockStateModelGenerator.registerTintableCrossBlockStateWithStages(ModBlocks.HONEY_BERRY_BUSH, BlockStateModelGenerator.TintType.NOT_TINTED,
+                HoneyBerryBushBlock.AGE, 0, 1, 2, 3);
     }
 
     @Override

@@ -18,6 +18,9 @@
 
   "item.tutorialmod.pink_garnet_hammer": "Pink Garnet Hammer",
 
+  "item.tutorialmod.honey_berries": "Honey Berries",
+
+
 
   "block.tutorialmod.pink_garnet_block": "Block of Pink Garnet",
   "block.tutorialmod.raw_pink_garnet_block": "Block of Raw Pink Garnet",
@@ -45,6 +48,8 @@
   "block.tutorialmod.pink_garnet_trapdoor": "Pink Garnet Trapdoor",
 
   "block.tutorialmod.pink_garnet_lamp": "Pink Garnet Lamp",
+
+  "block.tutorialmod.honey_berry_bush": "Honey Berry Bush",
 
 
   "enchantment.tutorialmod.lightning_striker": "Lightning Striker",

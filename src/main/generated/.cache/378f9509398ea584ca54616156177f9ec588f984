@@ -1,4 +1,4 @@
-// 1.21	2025-06-20T00:02:32.4515394	Tutorial Mod/Block Loot Tables
+// 1.21	2025-06-21T19:58:35.1754875	Tutorial Mod/Block Loot Tables
 81e1cfbc4d86d3fd0189a0c8ea6ecf867f65d766 data\tutorialmod\loot_table\blocks\pink_garnet_ore.json
 a8a175045f0d3d679e9afac5111d25b6d0b78ab7 data\tutorialmod\loot_table\blocks\pink_garnet_deepslate_ore.json
 e324243da1cda477b8f75c1cf06f408d17143f95 data\tutorialmod\loot_table\blocks\pink_garnet_wall.json
@@ -10,6 +10,7 @@ f9fed56792aac989521a48d25cde5a55d5973db4 data\tutorialmod\loot_table\blocks\pink
 64c3df15b6e946537414a0cc30f320d8b8019264 data\tutorialmod\loot_table\blocks\pink_garnet_stairs.json
 c524d99e89d1a6b91131c503e69d1343642df802 data\tutorialmod\loot_table\blocks\raw_pink_garnet_block.json
 cedbc7c7be44e1b0df48ece4790b5266a35f2b72 data\tutorialmod\loot_table\blocks\pink_garnet_slab.json
+f40ffe04abee684dbf45e9dbecffc8535b0237ac data\tutorialmod\loot_table\blocks\honey_berry_bush.json
 cbb358d78cd57da58c907a35212d486fa6f68efa data\tutorialmod\loot_table\blocks\magic_block.json
 574a89ee1b10a8e85c7f90b61a61c3dd6edeb638 data\tutorialmod\loot_table\blocks\pink_garnet_trapdoor.json
 1382e8045641fe6784d8535d113c80a6028a5ace data\tutorialmod\loot_table\blocks\pink_garnet_pressure_plate.json

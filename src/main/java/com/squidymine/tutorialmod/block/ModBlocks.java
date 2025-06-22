@@ -1,6 +1,7 @@
 package com.squidymine.tutorialmod.block;
 
 import com.squidymine.tutorialmod.TutorialMod;
+import com.squidymine.tutorialmod.block.custom.HoneyBerryBushBlock;
 import com.squidymine.tutorialmod.block.custom.MagicBlock;
 import com.squidymine.tutorialmod.block.custom.PinkGarnetLampBlock;
 import com.squidymine.tutorialmod.sound.ModSounds;
@@ -67,7 +68,14 @@ public class ModBlocks {
             new PinkGarnetLampBlock(AbstractBlock.Settings.create()
                     .strength(1f).requiresTool().luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15: 0)));
 
+    public static final Block HONEY_BERRY_BUSH = registerBlockWithoutBlockItem("honey_berry_bush",
+            new HoneyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)));
 
+
+
+    private static Block registerBlockWithoutBlockItem(String name, Block block) {
+        return Registry.register(Registries.BLOCK, Identifier.of(TutorialMod.MOD_ID, name), block);
+    }
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
