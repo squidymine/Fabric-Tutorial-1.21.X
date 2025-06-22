@@ -1,5 +1,6 @@
 package com.squidymine.tutorialmod.datagen;
 
+import com.squidymine.tutorialmod.block.ModBlocks;
 import com.squidymine.tutorialmod.item.ModItems;
 import com.squidymine.tutorialmod.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
@@ -45,5 +46,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModItems.PINK_GARNET_CHESTPLATE)
                 .add(ModItems.PINK_GARNET_LEGGINGS)
                 .add(ModItems.PINK_GARNET_BOOTS);
+
+        getOrCreateTagBuilder(ItemTags.LOGS_THAT_BURN)
+                .add(ModBlocks.DRIFTWOOD_LOG.asItem())
+                .add(ModBlocks.DRIFTWOOD_WOOD.asItem())
+                .add(ModBlocks.STRIPPED_DRIFTWOOD_LOG.asItem())
+                .add(ModBlocks.STRIPPED_DRIFTWOOD_WOOD.asItem());
+
+        getOrCreateTagBuilder(ItemTags.PLANKS)
+                .add(ModBlocks.DRIFTWOOD_PLANKS.asItem());
     }
 }
