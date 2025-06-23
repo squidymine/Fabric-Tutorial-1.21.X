@@ -9,8 +9,7 @@ import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.feature.*;
-import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
-import net.minecraft.world.gen.placementmodifier.PlacementModifier;
+import net.minecraft.world.gen.placementmodifier.*;
 
 import java.util.List;
 
@@ -20,6 +19,8 @@ public class ModPlacedFeatures {
     public static final RegistryKey<PlacedFeature> END_PINK_GARNET_ORE_PLACED_KEY = registerKey("end_pink_garnet_ore_placed");
 
     public static final RegistryKey<PlacedFeature> DRIFTWOOD_PLACED_KEY = registerKey("driftwood_placed");
+
+    public static final RegistryKey<PlacedFeature> HONEY_BERRY_BUSH_PLACED_KEY = registerKey("honey_berry_bush_placed");
 
 
     // ConfigFeature -> PlacedFeature -> WorldGen/BiomeModif
@@ -43,6 +44,10 @@ public class ModPlacedFeatures {
                         PlacedFeatures.createCountExtraModifier(2, 0.1f, 2), // placed down 2 tress, then a 10% chance to place 2 more;
                                                                                                             // also: chance is (1 / your input) as an INTEGER, 1/0.3 gives an error
                         ModBlocks.DRIFTWOOD_SAPLING));
+
+        register(context, HONEY_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.HONEY_BERRY_BUSH_KEY),
+                // Lower number = higher chance of spawning; pattern that ensures features don't cross w/ e/o?; ???; ensures it doesn't cross biomes
+                RarityFilterPlacementModifier.of(32), SquarePlacementModifier.of(), PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP, BiomePlacementModifier.of());
 
     }
 

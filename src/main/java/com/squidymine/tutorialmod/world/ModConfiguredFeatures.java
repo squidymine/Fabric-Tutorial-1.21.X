@@ -2,8 +2,10 @@ package com.squidymine.tutorialmod.world;
 
 import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.block.ModBlocks;
+import com.squidymine.tutorialmod.block.custom.HoneyBerryBushBlock;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.SweetBerryBushBlock;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
@@ -27,6 +29,8 @@ public class ModConfiguredFeatures {
     public static final RegistryKey<ConfiguredFeature<?, ?>> END_PINK_GARNET_ORE_KEY = registerKey("end_pink_garnet_ore");
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> DRIFTWOOD_KEY = registerKey("driftwood");
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> HONEY_BERRY_BUSH_KEY = registerKey("honey_berry_bush");
 
     // ConfigFeature -> PlacedFeature -> WorldGen/BiomeModif
     public static void bootstrap(Registerable<ConfiguredFeature<?, ?>> context) {
@@ -56,6 +60,12 @@ public class ModConfiguredFeatures {
 
                 new TwoLayersFeatureSize(1, 0, 2)).dirtProvider(BlockStateProvider.of(Blocks.STONE)) // dirtProv: w/o this block it is placed on will become dirt
                 .build());
+
+        register(context, HONEY_BERRY_BUSH_KEY, Feature.RANDOM_PATCH,
+                ConfiguredFeatures.createRandomPatchFeatureConfig( Feature.SIMPLE_BLOCK,
+                        new SimpleBlockFeatureConfig(BlockStateProvider.of(ModBlocks.HONEY_BERRY_BUSH
+                                .getDefaultState().with(HoneyBerryBushBlock.AGE, 3))),
+                        List.of(Blocks.GRASS_BLOCK)));
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {

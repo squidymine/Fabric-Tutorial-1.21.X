@@ -7,7 +7,9 @@ public class ModWorldGeneration {
         // (Ctrl + Left Click) on GenerationStep to see the order!!!
 
         ModOreGeneration.generateOres();
+
         ModTreeGeneration.generateTrees();
+        ModBushGeneration.generateBushes();
 
     }
 }
