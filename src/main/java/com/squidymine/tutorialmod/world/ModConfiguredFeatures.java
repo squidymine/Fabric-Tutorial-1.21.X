@@ -2,6 +2,7 @@ package com.squidymine.tutorialmod.world;
 
 import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.block.ModBlocks;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.registry.Registerable;
 import net.minecraft.registry.RegistryKey;
@@ -53,7 +54,8 @@ public class ModConfiguredFeatures {
                 BlockStateProvider.of(ModBlocks.DRIFTWOOD_LEAVES), // Leaves
                 new BlobFoliagePlacer(ConstantIntProvider.create(4), ConstantIntProvider.create(1), 3), //radius, offset, height (can have different foliage placers)
 
-                new TwoLayersFeatureSize(1, 0, 2)).build());
+                new TwoLayersFeatureSize(1, 0, 2)).dirtProvider(BlockStateProvider.of(Blocks.STONE)) // dirtProv: w/o this block it is placed on will become dirt
+                .build());
     }
 
     public static RegistryKey<ConfiguredFeature<?, ?>> registerKey(String name) {
