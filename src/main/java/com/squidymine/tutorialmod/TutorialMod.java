@@ -4,6 +4,8 @@ import com.squidymine.tutorialmod.block.ModBlocks;
 import com.squidymine.tutorialmod.component.ModDataComponentTypes;
 import com.squidymine.tutorialmod.effect.ModEffects;
 import com.squidymine.tutorialmod.enchantment.ModEnchantmentEffects;
+import com.squidymine.tutorialmod.entity.ModEntities;
+import com.squidymine.tutorialmod.entity.custom.MantisEntity;
 import com.squidymine.tutorialmod.item.ModItemGroups;
 import com.squidymine.tutorialmod.item.ModItems;
 import com.squidymine.tutorialmod.sound.ModSounds;
@@ -13,6 +15,7 @@ import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.FuelRegistry;
@@ -43,8 +46,9 @@ public class TutorialMod implements ModInitializer {
 		ModEffects.registerEffects();
 
 		ModEnchantmentEffects.registerEnchantmentEffects();
-
 		ModWorldGeneration.generateModWorldGen();
+
+		ModEntities.registerModEntities();
 
 		// Can create a custom class of all fuels that has a static register method that can be called here
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
@@ -77,6 +81,8 @@ public class TutorialMod implements ModInitializer {
 
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_PLANKS, 5, 20);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.DRIFTWOOD_LEAVES, 30, 60);
+
+		FabricDefaultAttributeRegistry.register(ModEntities.MANTIS, MantisEntity.createAttributes());
 
 	}
 }

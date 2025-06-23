@@ -2,6 +2,7 @@ package com.squidymine.tutorialmod.item;
 
 import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.block.ModBlocks;
+import com.squidymine.tutorialmod.entity.ModEntities;
 import com.squidymine.tutorialmod.item.custom.ChiselItem;
 import com.squidymine.tutorialmod.item.custom.HammerItem;
 import com.squidymine.tutorialmod.item.custom.ModArmorItem;
@@ -67,6 +68,9 @@ public class ModItems {
     // AliasedBlockItem allows us to use the item itself for the translation instead of the block
     public static final Item HONEY_BERRIES = registerItem("honey_berries",
             new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
+
+    public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg",
+            new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings()));
 
 
 

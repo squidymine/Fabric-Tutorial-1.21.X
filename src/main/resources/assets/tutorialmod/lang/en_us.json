@@ -20,6 +20,8 @@
 
   "item.tutorialmod.honey_berries": "Honey Berries",
 
+  "item.tutorialmod.mantis_spawn_egg": "Mantis Spawn Egg",
+
 
 
   "block.tutorialmod.pink_garnet_block": "Block of Pink Garnet",
@@ -87,5 +89,9 @@
   "sounds.tutorialmod.magic_block_step":  "Magic Block step",
   "sounds.tutorialmod.magic_block_place":  "Magic Block placed",
   "sounds.tutorialmod.magic_block_hit":  "Magic Block hit",
-  "sounds.tutorialmod.magic_block_fall": "Magic Block fall"
+  "sounds.tutorialmod.magic_block_fall": "Magic Block fall",
+
+
+
+  "entity.tutorialmod.mantis": "Mantis"
 }
