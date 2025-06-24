@@ -22,6 +22,8 @@
 
   "item.tutorialmod.mantis_spawn_egg": "Mantis Spawn Egg",
 
+  "item.tutorialmod.tomahawk": "Tomahawk",
+
 
 
   "block.tutorialmod.pink_garnet_block": "Block of Pink Garnet",
@@ -93,5 +95,6 @@
 
 
 
-  "entity.tutorialmod.mantis": "Mantis"
+  "entity.tutorialmod.mantis": "Mantis",
+  "entity.tutorialmod.tomahawk": "Tomahawk"
 }
