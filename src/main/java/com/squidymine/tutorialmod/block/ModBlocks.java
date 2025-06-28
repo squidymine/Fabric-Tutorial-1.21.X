@@ -1,10 +1,7 @@
 package com.squidymine.tutorialmod.block;
 
 import com.squidymine.tutorialmod.TutorialMod;
-import com.squidymine.tutorialmod.block.custom.HoneyBerryBushBlock;
-import com.squidymine.tutorialmod.block.custom.MagicBlock;
-import com.squidymine.tutorialmod.block.custom.ModSaplingBlock;
-import com.squidymine.tutorialmod.block.custom.PinkGarnetLampBlock;
+import com.squidymine.tutorialmod.block.custom.*;
 import com.squidymine.tutorialmod.sound.ModSounds;
 import com.squidymine.tutorialmod.world.tree.ModSaplingGenerators;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
@@ -96,6 +93,9 @@ public class ModBlocks {
 
     public static final Block DRIFTWOOD_SAPLING = registerBlock("driftwood_sapling",
             new ModSaplingBlock(ModSaplingGenerators.DRIFTWOOD, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING), Blocks.STONE));
+
+    public static final Block CHAIR = registerBlock("chair",
+            new ChairBlock(AbstractBlock.Settings.create().nonOpaque()));
 
 
 
