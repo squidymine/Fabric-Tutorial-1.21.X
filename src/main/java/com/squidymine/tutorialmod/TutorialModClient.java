@@ -1,6 +1,8 @@
 package com.squidymine.tutorialmod;
 
 import com.squidymine.tutorialmod.block.ModBlocks;
+import com.squidymine.tutorialmod.block.entity.ModBlockEntities;
+import com.squidymine.tutorialmod.block.entity.renderer.PedestalBlockEntityRenderer;
 import com.squidymine.tutorialmod.entity.ModEntities;
 import com.squidymine.tutorialmod.entity.client.*;
 import com.squidymine.tutorialmod.particle.ModParticles;
@@ -12,6 +14,7 @@ import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 
 public class TutorialModClient implements ClientModInitializer {
     @Override
@@ -35,6 +38,8 @@ public class TutorialModClient implements ClientModInitializer {
         EntityRendererRegistry.register(ModEntities.CHAIR, ChairRenderer::new);
 
         ParticleFactoryRegistry.getInstance().register(ModParticles.PINK_GARNET_PARTICLE, PinkGarnetParticle.Factory::new);
+
+        BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
 
     }
 }
