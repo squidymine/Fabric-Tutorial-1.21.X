@@ -2,6 +2,7 @@ package com.squidymine.tutorialmod.item.custom;
 
 import com.squidymine.tutorialmod.block.ModBlocks;
 import com.squidymine.tutorialmod.component.ModDataComponentTypes;
+import com.squidymine.tutorialmod.particle.ModParticles;
 import com.squidymine.tutorialmod.sound.ModSounds;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
@@ -61,6 +62,10 @@ public class ChiselItem extends Item {
                 ((ServerWorld) world).spawnParticles(ParticleTypes.FLAME, // Diff particle types might have their own speeds/directions
                         context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.5,
                         context.getBlockPos().getZ() + 0.5, 10, 0, 0, 0, 3);
+
+                ((ServerWorld) world).spawnParticles(ModParticles.PINK_GARNET_PARTICLE,
+                        context.getBlockPos().getX() + 0.5, context.getBlockPos().getY() + 1.0,
+                        context.getBlockPos().getZ() + 0.5, 8, 0, 0, 0, 2);
 
                 context.getStack().set(ModDataComponentTypes.COORDINATES, context.getBlockPos()); // Can pass in null to delete the data
                 //context.getStack().set(DataComponentTypes. , );
