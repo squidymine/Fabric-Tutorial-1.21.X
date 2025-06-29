@@ -78,6 +78,8 @@ public class PedestalBlock extends BlockWithEntity {
 
                 pedestalBlockEntity.markDirty();
                 world.updateListeners(pos, state, state, 0);
+            } else if(player.isSneaking() && !world.isClient()) {
+                player.openHandledScreen(pedestalBlockEntity); // Since the block entity extends the ExtendedScreenHandlerFactory, it can do this
             }
         }
 

@@ -10,6 +10,7 @@ import com.squidymine.tutorialmod.entity.custom.MantisEntity;
 import com.squidymine.tutorialmod.item.ModItemGroups;
 import com.squidymine.tutorialmod.item.ModItems;
 import com.squidymine.tutorialmod.particle.ModParticles;
+import com.squidymine.tutorialmod.screen.ModScreenHandlers;
 import com.squidymine.tutorialmod.sound.ModSounds;
 import com.squidymine.tutorialmod.util.HammerUsageEvent;
 import com.squidymine.tutorialmod.util.ModLootTableModifiers;
@@ -57,6 +58,7 @@ public class TutorialMod implements ModInitializer {
 		ModLootTableModifiers.modifyLootTables();
 
 		ModBlockEntities.registerBlockEntities();
+		ModScreenHandlers.registerScreenHandlers();
 
 		// Can create a custom class of all fuels that has a static register method that can be called here
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
