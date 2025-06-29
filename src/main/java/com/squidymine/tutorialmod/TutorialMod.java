@@ -1,6 +1,7 @@
 package com.squidymine.tutorialmod;
 
 import com.squidymine.tutorialmod.block.ModBlocks;
+import com.squidymine.tutorialmod.block.entity.ModBlockEntities;
 import com.squidymine.tutorialmod.component.ModDataComponentTypes;
 import com.squidymine.tutorialmod.effect.ModEffects;
 import com.squidymine.tutorialmod.enchantment.ModEnchantmentEffects;
@@ -54,6 +55,8 @@ public class TutorialMod implements ModInitializer {
 
 		ModParticles.registerParticles();
 		ModLootTableModifiers.modifyLootTables();
+
+		ModBlockEntities.registerBlockEntities();
 
 		// Can create a custom class of all fuels that has a static register method that can be called here
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);

@@ -93,6 +93,8 @@ public class ModItemGroups {
 
                         entries.add(ModBlocks.CHAIR);
 
+                        entries.add(ModBlocks.PEDESTAL);
+
                     }).build());
 
 
