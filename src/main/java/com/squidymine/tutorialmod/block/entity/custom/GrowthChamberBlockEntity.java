@@ -3,6 +3,9 @@ package com.squidymine.tutorialmod.block.entity.custom;
 import com.squidymine.tutorialmod.block.entity.ImplementedInventory;
 import com.squidymine.tutorialmod.block.entity.ModBlockEntities;
 import com.squidymine.tutorialmod.item.ModItems;
+import com.squidymine.tutorialmod.recipe.GrowthChamberRecipe;
+import com.squidymine.tutorialmod.recipe.GrowthChamberRecipeInput;
+import com.squidymine.tutorialmod.recipe.ModRecipes;
 import com.squidymine.tutorialmod.screen.custom.GrowthChamberScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -17,6 +20,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.listener.ClientPlayPacketListener;
 import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
+import net.minecraft.recipe.RecipeEntry;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -26,6 +30,8 @@ import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.Optional;
 
 public class GrowthChamberBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory<BlockPos>, ImplementedInventory {
     private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
@@ -125,9 +131,10 @@ public class GrowthChamberBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     private void craftItem() {
-        ItemStack output = new ItemStack(ModItems.PINK_GARNET, 6);
+        Optional<RecipeEntry<GrowthChamberRecipe>> recipe = getCurrentRecipe();
 
-        this.removeStack(INPUT_SLOT, 1);
+        ItemStack output = recipe.get().value().output();
+        this.removeStack(INPUT_SLOT, 1); // recipe.get().value().getIngredients().get(0).get??? For multiple inputs maybe?
         this.setStack(OUTPUT_SLOT, new ItemStack(output.getItem(),
                 this.getStack(OUTPUT_SLOT).getCount() + output.getCount()));
 
@@ -142,11 +149,18 @@ public class GrowthChamberBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     private boolean hasRecipe() {
-        Item input = ModItems.RAW_PINK_GARNET;
-        ItemStack output = new ItemStack(ModItems.PINK_GARNET, 6);
+        Optional<RecipeEntry<GrowthChamberRecipe>> recipe = getCurrentRecipe();
+        if (recipe.isEmpty()) {
+            return false;
+        }
 
-        return this.getStack(INPUT_SLOT).isOf(input) &&
-                canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+        ItemStack output = recipe.get().value().output();
+        return canInsertAmountIntoOutputSlot(output.getCount()) && canInsertItemIntoOutputSlot(output);
+    }
+
+    private Optional<RecipeEntry<GrowthChamberRecipe>> getCurrentRecipe() {
+        return this.getWorld().getRecipeManager()
+                .getFirstMatch(ModRecipes.GROWTH_CHAMBER_TYPE, new GrowthChamberRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
     }
 
     private boolean canInsertItemIntoOutputSlot(ItemStack output) {
