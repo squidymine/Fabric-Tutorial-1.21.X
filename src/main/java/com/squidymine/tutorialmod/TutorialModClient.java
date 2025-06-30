@@ -8,6 +8,7 @@ import com.squidymine.tutorialmod.entity.client.*;
 import com.squidymine.tutorialmod.particle.ModParticles;
 import com.squidymine.tutorialmod.particle.PinkGarnetParticle;
 import com.squidymine.tutorialmod.screen.ModScreenHandlers;
+import com.squidymine.tutorialmod.screen.custom.GrowthChamberScreen;
 import com.squidymine.tutorialmod.screen.custom.PedestalScreen;
 import com.squidymine.tutorialmod.util.ModModelPredicates;
 import net.fabricmc.api.ClientModInitializer;
@@ -45,6 +46,8 @@ public class TutorialModClient implements ClientModInitializer {
 
         BlockEntityRendererFactories.register(ModBlockEntities.PEDESTAL_BE, PedestalBlockEntityRenderer::new);
         HandledScreens.register(ModScreenHandlers.PEDESTAL_SCREEN_HANDLER, PedestalScreen::new);
+
+        HandledScreens.register(ModScreenHandlers.GROWTH_CHAMBER_SCREEN_HANDLER, GrowthChamberScreen::new);
 
     }
 }

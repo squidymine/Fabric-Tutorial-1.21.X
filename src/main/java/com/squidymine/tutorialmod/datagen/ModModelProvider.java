@@ -59,6 +59,8 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.DRIFTWOOD_SAPLING, BlockStateModelGenerator.TintType.NOT_TINTED);
 
         blockStateModelGenerator.registerNorthDefaultHorizontalRotation(ModBlocks.CHAIR); //Generates block model json file, so the actual one we made is not in generated
+
+        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.GROWTH_CHAMBER);
     }
 
     @Override
