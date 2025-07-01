@@ -1,12 +1,15 @@
 package com.squidymine.tutorialmod.datagen;
 
+import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.block.ModBlocks;
 import com.squidymine.tutorialmod.block.custom.HoneyBerryBushBlock;
 import com.squidymine.tutorialmod.block.custom.PinkGarnetLampBlock;
+import com.squidymine.tutorialmod.item.ModArmorMaterials;
 import com.squidymine.tutorialmod.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
 import net.minecraft.data.client.*;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.util.Identifier;
 
@@ -80,10 +83,14 @@ public class ModModelProvider extends FabricModelProvider {
 
         itemModelGenerator.register(ModItems.PINK_GARNET_HAMMER, Models.HANDHELD);
 
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_HELMET));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_CHESTPLATE));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_LEGGINGS));
-        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_BOOTS));
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_HELMET), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
+                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_CHESTPLATE), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
+                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_LEGGINGS), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
+                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
+        itemModelGenerator.registerArmor(((ArmorItem) ModItems.PINK_GARNET_BOOTS), Identifier.of(TutorialMod.MOD_ID, "pink_garnet"),
+                ModArmorMaterials.PINK_GARNET, EquipmentSlot.HEAD);
 
         itemModelGenerator.register(ModBlocks.DRIFTWOOD_SAPLING.asItem(), Models.GENERATED);
 

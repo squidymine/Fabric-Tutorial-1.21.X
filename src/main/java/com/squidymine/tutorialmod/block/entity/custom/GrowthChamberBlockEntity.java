@@ -25,6 +25,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -159,7 +160,7 @@ public class GrowthChamberBlockEntity extends BlockEntity implements ExtendedScr
     }
 
     private Optional<RecipeEntry<GrowthChamberRecipe>> getCurrentRecipe() {
-        return this.getWorld().getRecipeManager()
+        return ((ServerWorld) this.getWorld()).getRecipeManager()
                 .getFirstMatch(ModRecipes.GROWTH_CHAMBER_TYPE, new GrowthChamberRecipeInput(inventory.get(INPUT_SLOT)), this.getWorld());
     }
 

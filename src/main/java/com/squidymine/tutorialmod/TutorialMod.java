@@ -23,7 +23,7 @@ import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
-import net.fabricmc.fabric.api.registry.FuelRegistry;
+import net.fabricmc.fabric.api.registry.FuelRegistryEvents;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -64,13 +64,15 @@ public class TutorialMod implements ModInitializer {
 		ModRecipes.registerRecipes();
 
 		// Can create a custom class of all fuels that has a static register method that can be called here
-		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600);
+		FuelRegistryEvents.BUILD.register(((builder, context) -> {
+			builder.add(ModItems.STARLIGHT_ASHES, 600);
+		}));
 
 		PlayerBlockBreakEvents.BEFORE.register(new HammerUsageEvent());
 		AttackEntityCallback.EVENT.register((player, world, hand, entity, hitResult) -> {
 			if (entity instanceof SheepEntity sheepEntity && !world.isClient()) { // The message sends twice w/o server check, but normally you don't have to do that
 				if (player.getMainHandStack().getItem() == Items.END_ROD) {
-					player.sendMessage(Text.literal("The Player just hit the sheep with an end rod!! HOW DARE YOU!!"));
+					player.sendMessage(Text.literal("The Player just hit the sheep with an end rod!! HOW DARE YOU!!"), false); // true means displayed in the middle of the screen
 					player.getMainHandStack().decrement(1);
 					sheepEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 600, 6));
 				}

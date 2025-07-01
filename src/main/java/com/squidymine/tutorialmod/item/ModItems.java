@@ -9,20 +9,24 @@ import com.squidymine.tutorialmod.item.custom.ModArmorItem;
 import com.squidymine.tutorialmod.item.custom.TomahawkItem;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.*;
+import net.minecraft.item.equipment.EquipmentType;
 import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
+import java.util.function.Function;
 
 public class ModItems {
-    public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()));
-    public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet", new Item(new Item.Settings()));
+    public static final Item PINK_GARNET = registerItem("pink_garnet", Item::new);
+    public static final Item RAW_PINK_GARNET = registerItem("raw_pink_garnet", Item::new);
 
-    public static final Item CHISEL = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
-    public static final Item CAULIFLOWER = registerItem("cauliflower", new Item(new Item.Settings().food(ModFoodComponents.CAULIFLOWER)) {
+    public static final Item CHISEL = registerItem("chisel", settings -> new ChiselItem(settings.maxDamage(32)));
+    public static final Item CAULIFLOWER = registerItem("cauliflower", settings -> new Item(settings.food(ModFoodComponents.CAULIFLOWER, ModFoodComponents.CAULIFLOWER_EFFECT)) {
         @Override
         public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
             tooltip.add(Text.translatable("tooltip.tutorialmod.cauliflower.tooltip"));
@@ -30,59 +34,54 @@ public class ModItems {
         }
     });
 
-    public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", new Item(new Item.Settings()));
+    public static final Item STARLIGHT_ASHES = registerItem("starlight_ashes", Item::new);
 
     public static final Item PINK_GARNET_SWORD = registerItem("pink_garnet_sword",
-            new SwordItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
-                    .attributeModifiers(SwordItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 3, -2.4f))));
+            setting -> new SwordItem(ModToolMaterials.PINK_GARNET, 3, -2.4f, setting));
     public static final Item PINK_GARNET_PICKAXE = registerItem("pink_garnet_pickaxe",
-            new PickaxeItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
-                    .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 1, -2.8f))));
+            setting -> new PickaxeItem(ModToolMaterials.PINK_GARNET, 1, -2.8f, setting));
     public static final Item PINK_GARNET_SHOVEL = registerItem("pink_garnet_shovel",
-            new ShovelItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
-                    .attributeModifiers(ShovelItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 1.5f, -3.0f))));
+            setting -> new ShovelItem(ModToolMaterials.PINK_GARNET, 1.5f, -3.0f, setting));
     public static final Item PINK_GARNET_AXE = registerItem("pink_garnet_axe",
-            new AxeItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
-                    .attributeModifiers(AxeItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 6, -3.2f))));
+            setting -> new AxeItem(ModToolMaterials.PINK_GARNET, 6, -3.2f, setting));
     public static final Item PINK_GARNET_HOE = registerItem("pink_garnet_hoe",
-            new HoeItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
-                    .attributeModifiers(HoeItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 0, -3f))));
+            setting -> new HoeItem(ModToolMaterials.PINK_GARNET, 0, -3f, setting));
 
     public static final Item PINK_GARNET_HAMMER = registerItem("pink_garnet_hammer",
-            new HammerItem(ModToolsMaterials.PINK_GARNET, new Item.Settings()
-                    .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolsMaterials.PINK_GARNET, 7, -3.4f))));
-    // ArmorItem.Type.HELMET.getMaxDamage(15)  is default helmet durability with a 15 times multi
+            setting -> new HammerItem(ModToolMaterials.PINK_GARNET, 7, -3.4f, setting));
+    // EquipmentType.HELMET.getMaxDamage(15)  is default helmet durability with a 15 times multi
 
     public static final Item PINK_GARNET_HELMET = registerItem("pink_garnet_helmet",
-            new ModArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, ArmorItem.Type.HELMET, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.HELMET.getMaxDamage(15))));
+            settings -> new ModArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.HELMET, settings
+                    .maxDamage(EquipmentType.HELMET.getMaxDamage(15))));
     public static final Item PINK_GARNET_CHESTPLATE = registerItem("pink_garnet_chestplate",
-            new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, ArmorItem.Type.CHESTPLATE, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.CHESTPLATE.getMaxDamage(15))));
+            settings -> new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.CHESTPLATE, settings
+                    .maxDamage(EquipmentType.CHESTPLATE.getMaxDamage(15))));
     public static final Item PINK_GARNET_LEGGINGS = registerItem("pink_garnet_leggings",
-            new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, ArmorItem.Type.LEGGINGS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.LEGGINGS.getMaxDamage(15))));
+            settings -> new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.LEGGINGS, settings
+                    .maxDamage(EquipmentType.LEGGINGS.getMaxDamage(15))));
     public static final Item PINK_GARNET_BOOTS = registerItem("pink_garnet_boots",
-            new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, ArmorItem.Type.BOOTS, new Item.Settings()
-                    .maxDamage(ArmorItem.Type.BOOTS.getMaxDamage(15))));
+            settings -> new ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, EquipmentType.BOOTS, settings
+                    .maxDamage(EquipmentType.BOOTS.getMaxDamage(15))));
 
     // AliasedBlockItem allows us to use the item itself for the translation instead of the block
     public static final Item HONEY_BERRIES = registerItem("honey_berries",
-            new AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, new Item.Settings().food(ModFoodComponents.HONEY_BERRY)));
+            settings -> new BlockItem(ModBlocks.HONEY_BERRY_BUSH, settings.food(ModFoodComponents.HONEY_BERRIES)));
 
     public static final Item MANTIS_SPAWN_EGG = registerItem("mantis_spawn_egg",
-            new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, new Item.Settings()));
+            settings -> new SpawnEggItem(ModEntities.MANTIS, 0x9dc783, 0xbfaf5f, settings));
 
     public static final Item TOMAHAWK = registerItem("tomahawk",
-            new TomahawkItem(new Item.Settings().maxCount(16)));
+            settings -> new TomahawkItem(settings.maxCount(16)));
 
     public static final Item SPECTRE_STAFF = registerItem("spectre_staff",
-            new Item(new Item.Settings().maxCount(1)));
+            settings -> new Item(settings.maxCount(1)));
 
 
 
-    private static Item registerItem(String name, Item item) {
-        return Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID, name), item);
+    private static Item registerItem(String name, Function<Item.Settings, Item> function) {
+        return Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID, name),
+                function.apply(new Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, Identifier.of(TutorialMod.MOD_ID, name)))));
     }
 
     public static void registerModItems() {

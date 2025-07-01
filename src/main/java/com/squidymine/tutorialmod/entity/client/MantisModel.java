@@ -7,20 +7,21 @@ import com.squidymine.tutorialmod.TutorialMod;
 import com.squidymine.tutorialmod.entity.custom.MantisEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
+import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
-import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
-public class MantisModel<T extends MantisEntity> extends SinglePartEntityModel<T> {
+public class MantisModel extends EntityModel<MantisRenderState> {
     public static final EntityModelLayer MANTIS = new EntityModelLayer(Identifier.of(TutorialMod.MOD_ID, "mantis"), "main");
     private final ModelPart root;
     private final ModelPart mantis;
     private final ModelPart head;
 
     public MantisModel(ModelPart root) {
+        super(root);
         this.root = root.getChild("root");
         this.mantis = this.root.getChild("mantis");
         this.head = this.mantis.getChild("head");
@@ -104,12 +105,12 @@ public class MantisModel<T extends MantisEntity> extends SinglePartEntityModel<T
     // LOOK AT CamelEntity FOR GOOD REFERENCE :)
 
     @Override
-    public void setAngles(MantisEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        this.getPart().traverse().forEach(ModelPart::resetTransform); // Goes through all model parts and resets their transforms
-        this.setHeadAngles(netHeadYaw, headPitch);
+    public void setAngles(MantisRenderState state) {
+        super.setAngles(state); // Goes through all model parts and resets their transforms?? Maybe?
+        this.setHeadAngles(state.yawDegrees, state.pitch);
 
-        this.animateMovement(MantisAnimations.ANIM_MANTIS_WALK, limbSwing, limbSwingAmount, 2f, 2.5f);
-        this.updateAnimation(entity.idleAnimationState, MantisAnimations.ANIM_MANTIS_IDLE, ageInTicks, 1f);
+        this.animateWalking(MantisAnimations.ANIM_MANTIS_WALK, state.limbFrequency, state.limbAmplitudeMultiplier, 2f, 2.5f);
+        this.animate(state.idleAnimationState, MantisAnimations.ANIM_MANTIS_IDLE, state.age, 1f);
     }
 
     private void setHeadAngles(float headYaw, float headPitch) {
@@ -118,15 +119,5 @@ public class MantisModel<T extends MantisEntity> extends SinglePartEntityModel<T
 
         this.head.yaw = headYaw * 0.017453292F;
         this.head.pitch = headPitch * 0.017453292F;
-    }
-
-    @Override
-    public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, int color) {
-        root.render(matrices, vertexConsumer, light, overlay, color);
-    }
-
-    @Override
-    public ModelPart getPart() {
-        return root;
     }
 }

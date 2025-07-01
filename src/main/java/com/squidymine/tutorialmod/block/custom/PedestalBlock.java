@@ -8,8 +8,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.ItemActionResult;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -60,8 +60,8 @@ public class PedestalBlock extends BlockWithEntity {
     }
 
     @Override
-    protected ItemActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
-                                             PlayerEntity player, Hand hand, BlockHitResult hit) {
+    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
+                                         PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.getBlockEntity(pos) instanceof PedestalBlockEntity pedestalBlockEntity) { // Should always be true, but just in case
             if(pedestalBlockEntity.isEmpty() && !stack.isEmpty()) {
                 pedestalBlockEntity.setStack(0, stack.copyWithCount(1)); // Does "copyWithCount(1)" to ensure only 1 item goes in the blockentity inv
@@ -83,6 +83,6 @@ public class PedestalBlock extends BlockWithEntity {
             }
         }
 
-        return ItemActionResult.SUCCESS;
+        return ActionResult.SUCCESS;
     }
 }

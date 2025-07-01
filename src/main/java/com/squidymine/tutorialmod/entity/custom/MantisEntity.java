@@ -57,10 +57,11 @@ public class MantisEntity extends AnimalEntity {
 
     public static DefaultAttributeContainer.Builder createAttributes() {
         return MobEntity.createMobAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 18)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.35)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 1)
-                .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 20);
+                .add(EntityAttributes.MAX_HEALTH, 18)
+                .add(EntityAttributes.MOVEMENT_SPEED, 0.35)
+                .add(EntityAttributes.ATTACK_DAMAGE, 1)
+                .add(EntityAttributes.FOLLOW_RANGE, 20)
+                .add(EntityAttributes.TEMPT_RANGE, 12);
     }
 
     private void setupAnimationStates() {
@@ -89,7 +90,7 @@ public class MantisEntity extends AnimalEntity {
     @Nullable
     @Override
     public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-        MantisEntity baby = ModEntities.MANTIS.create(world);
+        MantisEntity baby = ModEntities.MANTIS.create(world, SpawnReason.BREEDING);
         MantisVariant variant = Util.getRandom(MantisVariant.values(), this.random); // gives a random variant for the baby
         baby.setVariant(variant);
         return baby;
