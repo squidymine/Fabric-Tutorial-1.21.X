@@ -23,6 +23,9 @@
 		],
 		"client": [
 			"com.squidymine.tutorialmod.TutorialModClient"
+		],
+		"rei_client": [
+			"com.squidymine.tutorialmod.compat.TutorialModREIClient"
 		]
 	},
 	"mixins": [
